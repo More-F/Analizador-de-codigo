@@ -4,19 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeLens — Analizador de Código</title>
-
-  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Estilos -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <div class="wrap">
 
-  <!-- ── HEADER ── -->
+  <!-- HEADER -->
   <header>
     <div class="logo">
       <div class="logo-icon">&lt;/&gt;</div>
@@ -25,29 +20,48 @@
         <div class="logo-sub">Analizador de Código</div>
       </div>
     </div>
-    <div class="badge">
-      <div class="pulse"></div>
-      ANÁLISIS ESTÁTICO
-    </div>
+    <div class="badge"><div class="pulse"></div>IA + ownCloud</div>
   </header>
 
-  <!-- ── HERO ── -->
+  <!-- HERO -->
   <div class="hero">
-    <h1>Revisa tu código con<br><em>análisis estático</em></h1>
-    <p>Entiende qué hace tu código, detecta errores y recibe sugerencias de mejora. 100% local, sin APIs.</p>
+    <h1>Revisa tu código con<br><em>inteligencia artificial</em></h1>
+    <p>Analiza tu código con Grock AI, guarda los resultados en ownCloud y mantén un historial de tus revisiones.</p>
   </div>
 
-  <!-- ── MAIN GRID ── -->
+  <!-- CONFIGURACIÓN ownCloud -->
+  <div class="config-grid" style="grid-template-columns:1fr;">
+
+    <div class="config-card">
+      <div class="config-card-title">
+        <span class="config-icon">☁</span>
+        ownCloud
+        <span class="config-badge" id="owncloudStatus">Sin configurar</span>
+      </div>
+      <div class="config-row">
+        <input type="text" id="ocUrl" class="config-input" placeholder="https://tuservidor.com/owncloud" />
+      </div>
+      <div class="config-row" style="margin-top:8px;">
+        <input type="text"     id="ocUser" class="config-input" placeholder="Usuario" style="flex:1" />
+        <input type="password" id="ocPass" class="config-input" placeholder="Contraseña" style="flex:1;margin-left:8px;" />
+        <button class="config-btn" id="ocSaveBtn" style="margin-left:8px;">GUARDAR</button>
+      </div>
+      <div class="config-hint">
+        Los análisis se guardarán en <strong>/CodeLens/</strong> dentro de tu ownCloud
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MAIN GRID -->
   <div class="main-grid">
 
-    <!-- PANEL IZQUIERDO: EDITOR -->
+    <!-- EDITOR -->
     <div class="panel">
-
       <div class="phead">
         <div class="plabel">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="16 18 22 12 16 6"/>
-            <polyline points="8 6 2 12 8 18"/>
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
           </svg>
           CÓDIGO FUENTE
         </div>
@@ -65,49 +79,41 @@
         </select>
       </div>
 
-      <!-- Editor con números de línea -->
       <div class="ebody">
         <div class="lncol" id="lncol">
           <div class="lncol-inner" id="lninner">1</div>
         </div>
-        <textarea
-          class="codeta"
-          id="codeta"
+        <textarea class="codeta" id="codeta"
           placeholder="// Escribe o pega tu código aquí..."
-          spellcheck="false"
-        ></textarea>
+          spellcheck="false"></textarea>
       </div>
 
       <div class="efoot">
         <button class="btn-run" id="runBtn">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="5 3 19 12 5 21 5 3"/>
-          </svg>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           ANALIZAR
         </button>
         <button class="btn-sec" id="clearBtn">LIMPIAR</button>
         <span class="emeta" id="emeta">0 líneas · 0 chars</span>
       </div>
+    </div>
 
-    </div><!-- /panel editor -->
-
-    <!-- PANEL DERECHO: RESULTADOS -->
+    <!-- RESULTADOS -->
     <div class="panel">
-
       <div class="phead">
         <div class="plabel">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
           RESULTADOS
         </div>
-        <button class="btn-copy" id="copyBtn">COPIAR</button>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="btn-oc" id="saveOcBtn" style="display:none;">☁ GUARDAR EN OC</button>
+          <button class="btn-copy" id="copyBtn">COPIAR</button>
+        </div>
       </div>
 
       <div class="rbody">
-
-        <!-- Estado: esperando código -->
         <div class="ph" id="phEl">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
@@ -117,30 +123,37 @@
           </svg>
           <p>Esperando código para analizar</p>
         </div>
-
-        <!-- Estado: analizando -->
         <div class="loader" id="loaderEl">
           <div class="scanbar"></div>
-          <p>Analizando...</p>
+          <p id="loaderMsg">Analizando...</p>
         </div>
-
-        <!-- Estado: resultados -->
-        <div id="resultEl" style="display: none;"></div>
-
+        <div id="resultEl" style="display:none;"></div>
       </div>
-
-    </div><!-- /panel resultados -->
+    </div>
 
   </div><!-- /main-grid -->
 
-  <!-- ── HISTORIAL ── -->
+  <!-- HISTORIAL ownCloud -->
+  <div class="oc-section" id="ocSection" style="display:none;">
+    <div class="oc-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+      </svg>
+      ARCHIVOS EN OWNCLOUD
+      <button class="btn-sec" id="ocRefreshBtn" style="margin-left:auto;font-size:10px;padding:5px 12px;">↻ ACTUALIZAR</button>
+    </div>
+    <div class="oc-file-list" id="ocFileList">
+      <div class="hempty">Sin archivos guardados aún</div>
+    </div>
+  </div>
+
+  <!-- HISTORIAL LOCAL -->
   <div class="hist">
     <div class="hist-t">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/>
-        <polyline points="12 6 12 12 16 14"/>
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
       </svg>
-      HISTORIAL
+      HISTORIAL LOCAL
       <button class="btn-clrh" id="clrhBtn">BORRAR TODO</button>
     </div>
     <div class="hlist" id="hlist">
@@ -148,17 +161,10 @@
     </div>
   </div>
 
-  <footer>
-    CodeLens — Programación Web II · Andres Moreno · 2026
-  </footer>
+  <footer>CodeLens — Programación Web II · Andres Moreno · 2026</footer>
+</div>
 
-</div><!-- /wrap -->
-
-<!-- Toast de notificaciones -->
 <div class="toast" id="toastEl"></div>
-
-<!-- Script principal — debe ir AL FINAL del body -->
 <script src="app.js"></script>
-
 </body>
 </html>
