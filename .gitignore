@@ -1,0 +1,6 @@
+# API keys y configuración local — nunca subir a Git
+config.js
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

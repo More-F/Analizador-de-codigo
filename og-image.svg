@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#080b0f"/>
+  <!-- Grid background -->
+  <defs>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(0,229,160,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <!-- Glow -->
+  <ellipse cx="600" cy="315" rx="400" ry="200" fill="rgba(0,229,160,0.04)"/>
+  <!-- Logo icon -->
+  <rect x="520" y="140" width="72" height="72" rx="14" fill="url(#grad)"/>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00e5a0"/>
+      <stop offset="100%" style="stop-color:#3b9eff"/>
+    </linearGradient>
+  </defs>
+  <text x="556" y="196" font-family="monospace" font-size="28" font-weight="bold" fill="#000" text-anchor="middle">&lt;/&gt;</text>
+  <!-- Title -->
+  <text x="600" y="280" font-family="monospace" font-size="56" font-weight="bold" fill="#dce8f0" text-anchor="middle">CodeLens</text>
+  <!-- Gradient subtitle -->
+  <defs>
+    <linearGradient id="textgrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00e5a0"/>
+      <stop offset="100%" style="stop-color:#3b9eff"/>
+    </linearGradient>
+  </defs>
+  <text x="600" y="340" font-family="monospace" font-size="28" fill="url(#textgrad)" text-anchor="middle">Analizador de Código con IA</text>
+  <!-- Description -->
+  <text x="600" y="400" font-family="sans-serif" font-size="20" fill="#7a8fa0" text-anchor="middle">Detecta errores · Sugiere mejoras · Guarda en ownCloud</text>
+  <!-- Tags -->
+  <rect x="270" y="440" width="130" height="36" rx="18" fill="rgba(0,229,160,0.1)" stroke="rgba(0,229,160,0.3)" stroke-width="1"/>
+  <text x="335" y="463" font-family="monospace" font-size="14" fill="#00e5a0" text-anchor="middle">JavaScript</text>
+  <rect x="415" y="440" width="100" height="36" rx="18" fill="rgba(0,229,160,0.1)" stroke="rgba(0,229,160,0.3)" stroke-width="1"/>
+  <text x="465" y="463" font-family="monospace" font-size="14" fill="#00e5a0" text-anchor="middle">Python</text>
+  <rect x="530" y="440" width="80" height="36" rx="18" fill="rgba(0,229,160,0.1)" stroke="rgba(0,229,160,0.3)" stroke-width="1"/>
+  <text x="570" y="463" font-family="monospace" font-size="14" fill="#00e5a0" text-anchor="middle">Java</text>
+  <rect x="625" y="440" width="70" height="36" rx="18" fill="rgba(0,229,160,0.1)" stroke="rgba(0,229,160,0.3)" stroke-width="1"/>
+  <text x="660" y="463" font-family="monospace" font-size="14" fill="#00e5a0" text-anchor="middle">PHP</text>
+  <rect x="710" y="440" width="70" height="36" rx="18" fill="rgba(0,229,160,0.1)" stroke="rgba(0,229,160,0.3)" stroke-width="1"/>
+  <text x="745" y="463" font-family="monospace" font-size="14" fill="#00e5a0" text-anchor="middle">SQL</text>
+  <rect x="795" y="440" width="130" height="36" rx="18" fill="rgba(0,229,160,0.1)" stroke="rgba(0,229,160,0.3)" stroke-width="1"/>
+  <text x="860" y="463" font-family="monospace" font-size="14" fill="#00e5a0" text-anchor="middle">TypeScript</text>
+  <!-- URL -->
+  <text x="600" y="560" font-family="monospace" font-size="16" fill="#3a4f60" text-anchor="middle">more-f.github.io/Analizador-de-codigo</text>
+</svg>

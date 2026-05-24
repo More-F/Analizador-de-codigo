@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://more-f.github.io/Analizador-de-codigo/sitemap.xml

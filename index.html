@@ -3,7 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeLens — Analizador de Código</title>
+
+  <!-- ══════════════════════════════════════
+       SEO BÁSICO
+  ══════════════════════════════════════ -->
+  <title>CodeLens — Analizador de Código con Inteligencia Artificial</title>
+  <meta name="description"    content="CodeLens analiza tu código fuente con IA, detecta errores, sugiere mejoras y evalúa buenas prácticas en JavaScript, Python, Java, PHP, SQL, HTML y más. Gratis y online.">
+  <meta name="keywords"       content="analizador de código, análisis de código IA, revisar código online, detectar errores código, mejorar código, code review, javascript, python, java, php, sql, typescript">
+  <meta name="author"         content="Andres Moreno">
+  <meta name="robots"         content="index, follow">
+  <meta name="theme-color"    content="#00e5a0">
+  <link rel="canonical"       href="https://more-f.github.io/Analizador-de-codigo/">
+
+  <!-- ══════════════════════════════════════
+       OPEN GRAPH (WhatsApp, Facebook, LinkedIn)
+  ══════════════════════════════════════ -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://more-f.github.io/Analizador-de-codigo/">
+  <meta property="og:title"       content="CodeLens — Analizador de Código con IA">
+  <meta property="og:description" content="Analiza tu código con inteligencia artificial. Detecta errores, recibe sugerencias de mejora y entiende qué hace tu código al instante.">
+  <meta property="og:image"       content="https://more-f.github.io/Analizador-de-codigo/og-image.png">
+  <meta property="og:locale"      content="es_ES">
+  <meta property="og:site_name"   content="CodeLens">
+
+  <!-- ══════════════════════════════════════
+       TWITTER CARD
+  ══════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="CodeLens — Analizador de Código con IA">
+  <meta name="twitter:description" content="Analiza tu código con IA. Detecta errores y recibe sugerencias de mejora al instante.">
+  <meta name="twitter:image"       content="https://more-f.github.io/Analizador-de-codigo/og-image.png">
+
+  <!-- ══════════════════════════════════════
+       GOOGLE ANALYTICS 4
+       ► Reemplaza G-XXXXXXXXXX con tu ID
+       ► Obtenlo en analytics.google.com
+         Admin → Data Streams → tu sitio → Measurement ID
+  ══════════════════════════════════════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E6BRSLW1DR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-E6BRSLW1DR');
+
+    // Evento: usuario hizo clic en ANALIZAR
+    window.trackAnalysis = function(lang, fuente) {
+      gtag('event', 'analizar_codigo', {
+        event_category: 'Herramienta',
+        event_label:    lang,
+        fuente:         fuente
+      });
+    };
+
+    // Evento: usuario guardó en ownCloud
+    window.trackOwnCloud = function() {
+      gtag('event', 'guardar_owncloud', {
+        event_category: 'ownCloud',
+        event_label:    'Archivo guardado'
+      });
+    };
+  </script>
+
+  <!-- ══════════════════════════════════════
+       SCHEMA.ORG — Datos estructurados
+       Le dice a Google exactamente qué es el sitio
+  ══════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CodeLens",
+    "description": "Analizador de código fuente con inteligencia artificial. Detecta errores, sugiere mejoras y evalúa buenas prácticas en múltiples lenguajes de programación.",
+    "url": "https://more-f.github.io/Analizador-de-codigo/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "es",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Andres Moreno"
+    },
+    "featureList": [
+      "Análisis de código con IA",
+      "Detección de errores",
+      "Sugerencias de mejora",
+      "Soporte para JavaScript, Python, Java, PHP, SQL, HTML, CSS, C, TypeScript",
+      "Integración con ownCloud",
+      "Historial de análisis local"
+    ]
+  }
+  </script>
+
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
